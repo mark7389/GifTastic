@@ -1,0 +1,41 @@
+
+.query{
+
+	margin: 10px;
+}
+
+.container{
+	float:left;
+	width:150px;
+	height: 140px;
+	margin:5px;
+	display: block;
+}
+.still{
+	margin:auto;
+	width:130px;
+	height:110px;
+	
+}
+.images{
+	margin:auto;
+	max-width: 100%;
+	min-height: 100px;
+	
+	overflow: auto;
+}
+.images:after{
+
+	content: " ";
+	display: inline-block;
+	clear: both;
+}
+body{
+	font-family: 'Cinzel', serif;
+}
+form{
+
+	font-weight: bold;
+	
+	color:#a0e2e5;
+}
