@@ -24,7 +24,7 @@ function displayNP(btn){
     console.log(topics[$(btn).attr("index")]);
     console.log(topics[$(btn).attr("index")]);
     console.log(topics[($(btn).attr("index"))]);
-    $("<button>").addClass("btn btn-default lP").attr("id", "goto").text("previous").attr("value", topics[($(btn).attr("index"))-1]).appendTo(".move");
+    $("<button>").addClass("btn btn-default lP").attr("id", "goto").text("prev").attr("value", topics[($(btn).attr("index"))-1]).appendTo(".move");
     $("<span>").addClass("cM").text($(btn).attr("value")).attr("value", topics[$(btn).attr("index")]).appendTo(".move");
     $("<button>").addClass("btn btn-default rN").attr("id", "goto").text("next").attr("value", topics[($(btn).attr("index"))+1]).appendTo(".move");
     console.log("hi");
