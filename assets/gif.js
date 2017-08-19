@@ -10,14 +10,27 @@ function renderButtons(){
     for(var i = 0; i<topics.length ; i++){
         
         x = topics[i];
-        $("<button>")
-            .addClass("btn btn-danger navbar-btn query")
+        $("<a>").addClass("list-group-item")
+            .addClass("query")
             .text(x)
             .attr("value", x)
-            .appendTo(".buttons")
+            .attr("index", i)
+        .appendTo(".buttons");
     }
 
 }///use form and use preventDefault(); instead
+
+function displayNP(btn){
+    console.log(topics[$(btn).attr("index")]);
+    console.log(topics[$(btn).attr("index")]);
+    console.log(topics[($(btn).attr("index"))]);
+    $("<button>").addClass("btn btn-default lP").attr("id", "goto").text("previous").attr("value", topics[($(btn).attr("index"))-1]).appendTo(".move");
+    $("<span>").addClass("cM").text($(btn).attr("value")).attr("value", topics[$(btn).attr("index")]).appendTo(".move");
+    $("<button>").addClass("btn btn-default rN").attr("id", "goto").text("next").attr("value", topics[($(btn).attr("index"))+1]).appendTo(".move");
+    console.log("hi");
+    
+
+};
 
 $("#clk").on("click", function(event){
 
@@ -26,18 +39,10 @@ $("#clk").on("click", function(event){
     renderButtons();
 
 });
-
-$(".reload").on("click", function(){
-
-    window.location.reload(true);
-
-});
-renderButtons();
-
-function displayGifs(){
-
+function getImg(btn){
     $(".images").empty();
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(this).attr("value") + "&api_key=a2eeedb4bc4946a780638b54a8e96e03&limit=15";
+    $(".move").empty();
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(btn).attr("value") + "&api_key=a2eeedb4bc4946a780638b54a8e96e03&limit=15";
     console.log(queryURL);
     $.ajax({
           url: queryURL,
@@ -60,7 +65,7 @@ function displayGifs(){
                         }
 
                     else if($(this).attr("kind") === "start"){
-                                $(this).attr("kind","stop");
+                            $(this).attr("kind","stop");
                             var v = $(this).attr("value");
                             $(this).attr("src", response.data[v].images.original_still.url);
 
@@ -68,6 +73,22 @@ function displayGifs(){
 
     });
 });
+
+};
+
+$(".reload").on("click", function(){
+
+    window.location.reload(true);
+
+});
+renderButtons();
+
+function displayGifs(){
+
+    
+    getImg(this); 
+    displayNP(this);
+
 }
 
 

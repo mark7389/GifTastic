@@ -19,41 +19,52 @@
 	<nav class="navbar navbar-default">
   		
   		<div class="container-fluid">
-    		<div class="navbar-header">
+    		<div class="navbar-header box">
      			 <a class="navbar-brand reload" href="#">
        				 Giftastic
       			</a>
     		</div>
-    		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-   		 	<form class="navbar-form navbar-left" role="search">
+    		
+   		 	<form class="navbar-form navbar-right bahreez" role="search">
 
-				<div class="form-group">
-					Add a Topic:
-					<input id="term" type="text" name="search">
+				<div class="form-group align">
+					
+					<input id="term" type="text" name="search" placeholder="add a topic...">
+					<div class="inst"><a href="#" title="Type word or phrase in search field, click enter or Find It. Look for your search in dropdown menu 'Gif Me', click on your button and let the magic happen !!">help?</a></div>
 				</div>
-				<button class="btn btn-success" id="clk">GIF ME!</button>
-	
+				
+				<button class="btn btn-default align-btn" id="clk">find it</button>
+				<div class="dropdown dropdown-right align-btn">
+  			
+  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    			Gif Me
+    			<span class="caret"></span>
+  				</button>
+  				<ul class="dropdown-menu buttons" aria-labelledby="dropdownMenu1"></ul>
+  				</div>
+
 			</form> 
 
-			<div class="buttons">
-  	
-  			</div>
+
 
   			</div>
-  			</div>
+
+  			
 
   		
 
 	</nav>
-
-
+	
 	<div class="row">
 		<div class="col-lg-2"></div>
-		<div class="col-lg-10 ">
-
+		<div class="col-lg-8 ">
+		<div class="move">
+			
+		</div>
 		<div class="images"></div>
 
 		</div>
+		<div class="col-lg-2"></div>
 
 	</div>
 
