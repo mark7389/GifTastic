@@ -2,7 +2,10 @@ $(document).ready(function() {
 
 var x;
 var topics =["work","animals","babies","parents","college"];
-
+// var mySelect="";
+// var next;
+var center;
+// var prev;
 function renderButtons(){
 
     $(".buttons").empty();
@@ -21,13 +24,11 @@ function renderButtons(){
 }///use form and use preventDefault(); instead
 
 function displayNP(btn){
-    console.log(topics[$(btn).attr("index")]);
-    console.log(topics[$(btn).attr("index")]);
-    console.log(topics[($(btn).attr("index"))]);
-    $("<button>").addClass("btn btn-default lP").attr("id", "goto").text("prev").attr("value", topics[($(btn).attr("index"))-1]).appendTo(".move");
-    $("<span>").addClass("cM").text($(btn).attr("value")).attr("value", topics[$(btn).attr("index")]).appendTo(".move");
-    $("<button>").addClass("btn btn-default rN").attr("id", "goto").text("next").attr("value", topics[($(btn).attr("index"))+1]).appendTo(".move");
-    console.log("hi");
+    // mySelect = $(btn).attr("value");
+    // prev = $("<button>").addClass("btn btn-default lP query").attr("go", "prev").attr("id", "goto").text("prev").appendTo(".move");
+    center = $("<span>").addClass("cM").text($(btn).attr("value")).attr("current",$(btn).attr("value")).appendTo(".move");
+    // next = $("<button>").addClass("btn btn-default rN query").attr("go", "next").attr("id", "goto").text("next").appendTo(".move");
+    // console.log(mySelect);
     
 
 };
@@ -39,10 +40,31 @@ $("#clk").on("click", function(event){
     renderButtons();
 
 });
+// function getNext(){
+
+    // if(topics.indexOf($(".cM").attr("current")) === 0 || topics.indexOf($(".cM").attr("current")) === topics.length-1){
+    //     //
+
+    // }
+    // else 
+    // if($(this).attr("go") === "next"){
+        
+        // console.log(mySelect);
+        // // var x =topics.indexOf(mySelect);
+        // console.log(x);
+        // var ntopic = topics[x+1];
+        // console.log(ntopic);
+        // var b = $("<button>").attr("value", ntopic);
+        // // getImg(b);
+        // displayNP(b);
+
+    // }
+
+// }
 function getImg(btn){
     $(".images").empty();
     $(".move").empty();
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(btn).attr("value") + "&api_key=a2eeedb4bc4946a780638b54a8e96e03&limit=15";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(btn).attr("value") + "&api_key=a2eeedb4bc4946a780638b54a8e96e03&limit=10";
     console.log(queryURL);
     $.ajax({
           url: queryURL,
@@ -94,6 +116,7 @@ function displayGifs(){
 
 
 $(document).on("click", ".query", displayGifs);
+// $(document).on("click", "#goto", getNext);
 
 
 });
