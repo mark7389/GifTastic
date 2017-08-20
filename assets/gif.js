@@ -64,7 +64,7 @@ $("#clk").on("click", function(event){
 function getImg(btn){
     $(".images").empty();
     $(".move").empty();
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + $(btn).attr("value") + "&api_key=a2eeedb4bc4946a780638b54a8e96e03&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + $(btn).attr("value") + "&api_key=a2eeedb4bc4946a780638b54a8e96e03&limit=10";
     console.log(queryURL);
     $.ajax({
           url: queryURL,
